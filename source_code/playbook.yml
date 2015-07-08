@@ -1,5 +1,29 @@
 ---
-- hosts: all
+- hosts: all 
+  remote_user: root
+  sudo: yes
+  tasks:
+  - name: System updates
+    apt: update_cache=yes
+
+- hosts: bffs
+  remote_user: root
+  sudo: yes
+  tasks:
+  - name: install Python
+    apt:
+      pkg: python
+      state: latest
+  - name: install pip 
+    apt:
+      pkg: python-pip
+      state: latest
+  - name: install flask
+    pip:
+      name: Flask
+      state: latest
+
+- hosts: all 
   remote_user: root
   sudo: yes
   tasks:
@@ -7,3 +31,4 @@
     apt:
       pkg: git 
       state: latest
+
