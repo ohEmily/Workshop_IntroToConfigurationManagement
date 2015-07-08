@@ -1,0 +1,9 @@
+---
+- hosts: all
+  remote_user: root
+  sudo: yes
+  tasks:
+  - name: install git
+    apt:
+      pkg: git 
+      state: latest
