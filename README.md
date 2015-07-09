@@ -8,8 +8,6 @@ _* = idempotency is a property that asserts that you can run the same set of com
 
 **tl;dr:** CM takes you from a world of haphazard development and test environments to a world of quick and easy environment setup. 
 
-### 1.b Use Cases
-
 ## Demo
 
 ### Setting up SSH Keys
@@ -30,3 +28,6 @@ Offending RSA key in /Users/emily/.ssh/known_hosts:8
 If you delete the offending line in your `known_hosts` file (in this case, delete line 8 in `Users/emily/.ssh/known_hosts`), the error will go away.
 
 Alternatively, you can run `ssh-keygen -R <ip_address>`.
+
+### DigitalOcean is Taking Long
+In general, DO has excellent up time. But for your own sanity, feel free to check `check status.digitalocean.com`.
