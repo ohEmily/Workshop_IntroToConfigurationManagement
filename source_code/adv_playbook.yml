@@ -5,11 +5,6 @@
   tasks:
   - name: System updates
     apt: update_cache=yes
-
-- hosts: bffs
-  remote_user: root
-  sudo: yes
-  tasks:
   - name: install Python
     apt:
       pkg: python
@@ -22,22 +17,15 @@
     pip:
       name: Flask
       state: latest
-
-- hosts: all 
-  remote_user: root
-  sudo: yes
-  tasks:
   - name: install git
     apt:
       pkg: git 
       state: latest
-
-- hosts: bffs
-  remote_user: root
-  tasks:
   - name: create directory for files
     file: path=~/CM-talk state=directory
   - name: get files from GitHub
     git: repo=https://github.com/ohEmily/Workshop_IntroToConfigurationManagement.git
         dest=~/CM-talk
         accept_hostkey=yes
+  - name: run flask app
+    command: python ~/CM-talk/source_code/server.py
